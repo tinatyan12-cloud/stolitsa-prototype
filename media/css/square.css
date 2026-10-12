@@ -3,41 +3,73 @@
 .ri>.phd,.nimg>.phd,.nbig>.phd,.nsm>.phd{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;padding:0!important;-webkit-mask-image:none!important;mask-image:none!important}
 .ri img,.nimg img,.nbig>.phd img,.nsm>.phd img{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover}
 
-/* --- страница «Новости» --- */
-.rcard .ri,.rbig .ri{aspect-ratio:1/1!important;height:auto!important;width:100%}
-.rshow{container-type:inline-size;align-items:start!important}
-.rstack{grid-template-rows:none!important;gap:20px}
-/* боковые карточки: квадратная миниатюра слева, высота столбца = высоте большой карточки */
-.rsm{grid-template-columns:var(--sq) 1fr!important;--sq:calc((50cqi - 12px + 160px) / 3);min-height:0}
-.rsm .ri{width:var(--sq);aspect-ratio:1/1;height:auto!important}
-.rsm .rb{padding:20px 24px!important;overflow:hidden}
-.rsm .h4{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-html.mob .rsm{--sq:120px!important}
-html.mob .rsm .rb{padding:14px 16px!important}
-html.mob .rsm .h4{font-size:17px!important;margin-top:8px}
+/* --- страница «Новости»: ведущая новость — горизонтальная карточка, справа три компактные --- */
+.rshow{grid-template-columns:1.15fr 1fr!important;align-items:start!important;gap:24px}
+.rbig{display:grid!important;grid-template-columns:400px 1fr;height:400px}
+.rbig .ri{width:400px;height:400px!important;aspect-ratio:1/1}
+.rbig .rb{padding:32px 36px!important;overflow:hidden}
+.rbig .h3{font-size:30px!important;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.rstack{grid-template-rows:none!important;gap:20px!important}
+.rsm{grid-template-columns:120px 1fr!important;height:120px;min-height:0}
+.rsm .ri{width:120px;height:120px!important;aspect-ratio:1/1}
+.rsm .rb{padding:12px 20px!important;justify-content:center;overflow:hidden}
+.rsm .rb .chip{display:none}
+.rsm .h4{font-size:18px!important;margin-top:0!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rsm .dt{margin-top:8px!important;padding-top:0!important}
+.rsm .ri .phl{display:none}
+.rgrid:not(.kbr){grid-template-columns:repeat(4,1fr)!important}
+.rcard .ri{aspect-ratio:1/1!important;height:auto!important;width:100%}
+html.mob .rshow{grid-template-columns:1fr!important}
+html.mob .rbig{grid-template-columns:280px 1fr;height:280px}
+html.mob .rbig .ri{width:280px;height:280px!important}
+html.mob .rbig .rb{padding:20px 24px!important}
+html.mob .rbig .p{-webkit-line-clamp:2}
+html.mob .rgrid:not(.kbr){grid-template-columns:repeat(2,1fr)!important}
+@media (max-width:600px){
+ html.mob .rbig{grid-template-columns:1fr;height:auto}
+ html.mob .rbig .ri{width:100%;height:auto!important}
+ html.mob .rsm{grid-template-columns:110px 1fr!important;height:110px}
+ html.mob .rsm .ri{width:110px;height:110px!important}
+ html.mob .rsm .rb{padding:10px 14px!important}
+ html.mob .rsm .h4{font-size:16px!important;-webkit-line-clamp:3}
+ html.mob .rgrid:not(.kbr){grid-template-columns:1fr!important}
+}
 
-/* --- страница «Медиа» --- */
+/* --- страница «Медиа»: квадраты; большой альбом — горизонтальный, фото не больше 520 --- */
 .ncard .nimg{height:auto!important;min-height:0!important;aspect-ratio:1/1;flex:none}
-.ncard.big{background:var(--navy);color:#fff}
-.ncard.big .nimg{aspect-ratio:auto!important;height:100%!important;display:flex!important;flex-direction:column;background:none!important;overflow:visible}
+.ncard.big{grid-row:auto!important;grid-column:span 2;background:var(--navy);color:#fff}
+.ncard.big .nimg{aspect-ratio:auto!important;height:100%!important;display:flex!important;flex-direction:row;align-items:stretch;background:none!important}
 .ncard.big .nimg::after{display:none!important}
-.ncard.big .ov{position:static!important;padding:24px 32px 30px!important;background:none!important;inset:auto!important}
-.ncard.big .ov .h3{font-size:30px;margin:10px 0 14px}
-.ncard.big .nimg>.phd{position:relative!important;inset:auto!important;aspect-ratio:1/1;height:auto!important;flex:none}
-.ncard.big{overflow:hidden}
-.ncard.big .play{top:50%}
-html.mob .ncard.big .ov{padding:18px 20px 22px!important}
-html.mob .ncard.big .nimg>.phd{position:relative!important;inset:auto!important;aspect-ratio:1/1;height:auto!important}
+.ncard.big .nimg>.phd{position:relative!important;inset:auto!important;width:min(520px,55%)!important;height:auto!important;aspect-ratio:1/1;flex:none;align-self:flex-start}
+.ncard.big .ov{position:static!important;inset:auto!important;padding:32px 32px!important;background:none!important;align-self:flex-end;min-width:0}
+.ncard.big .ov .h3{font-size:28px;margin:10px 0 14px}
+.ncard.big .cnt,.ncard.big .dur{right:auto!important;left:20px}
+.ncard.big .play{left:min(260px,27.5%)!important;top:min(260px,27.5%)!important}
+@media (max-width:600px){
+ html.mob .ncard.big{grid-column:1/-1}
+ html.mob .ncard.big .nimg{flex-direction:column}
+ html.mob .ncard.big .nimg>.phd{width:100%!important}
+ html.mob .ncard.big .ov{align-self:stretch;padding:18px 20px 22px!important}
+ html.mob .ncard.big .play{left:50%!important;top:50vw!important}
+}
 
-/* --- главная: блок новостей --- */
-.news{grid-template-columns:1fr 1fr!important;align-items:start;container-type:inline-size}
-.nbig{height:auto!important;display:flex;flex-direction:column;background:var(--navy)}
+/* --- главная: блок новостей — ведущая горизонтальная, две компактные справа --- */
+.news{grid-template-columns:1.15fr 1fr!important;align-items:start}
+.nbig{height:400px!important;display:grid!important;grid-template-columns:400px 1fr;background:var(--navy)}
 .nbig::after{display:none!important}
-.nbig>.phd{position:relative!important;inset:auto!important;aspect-ratio:1/1;height:auto!important}
-.nbig .in{position:relative!important;inset:auto!important;padding:28px 36px 32px}
+.nbig>.phd{position:relative!important;inset:auto!important;width:400px!important;height:400px!important}
+.nbig .in{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;bottom:auto!important;padding:32px 32px 28px;display:flex;flex-direction:column;justify-content:flex-end}
+.nbig .circ{position:static!important;margin-top:20px}
 .news>div:not(.nbig){display:grid;gap:16px}
-.nsm{--sq:calc((50cqi - 8px - 16px) / 2 + 90px);grid-template-columns:var(--sq) 1fr!important;height:auto!important;align-items:start}
-.nsm>.phd{position:relative!important;inset:auto!important;width:var(--sq)!important;aspect-ratio:1/1;height:auto!important}
-.nsm .in{padding:24px 26px 22px 0}
-html.mob .news .nbig>.phd,html.mob .news .nsm>.phd{width:100%!important;aspect-ratio:1/1;height:auto!important}
-html.mob .news .nsm{--sq:auto}
+.nsm{grid-template-columns:192px 1fr!important;height:192px!important;align-items:stretch}
+.nsm>.phd{position:relative!important;inset:auto!important;width:192px!important;height:192px!important}
+.nsm .in{padding:18px 24px 16px 0!important;overflow:hidden}
+.nsm .h3{font-size:20px!important;margin:10px 0 6px!important}
+.nsm .p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:14px}
+html.mob .news .nbig,html.mob .news .nsm{height:auto!important;display:flex!important}
+html.mob .news .nbig>.phd,html.mob .news .nsm>.phd{width:100%!important;height:auto!important;aspect-ratio:1/1}
+html.mob .nbig .circ{display:none}
+html.mob .ncard.big .nimg{min-height:0!important;height:100%!important;background:none!important}
+html.mob .ncard.big .nimg>.phd{position:relative!important;inset:auto!important;height:auto!important;aspect-ratio:1/1;padding:0!important}
+html.mob .ncard.big .ov{position:static!important}
+.nbig .in{align-items:flex-start}
