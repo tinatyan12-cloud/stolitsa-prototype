@@ -73,3 +73,23 @@ html.mob .ncard.big .nimg{min-height:0!important;height:100%!important;backgroun
 html.mob .ncard.big .nimg>.phd{position:relative!important;inset:auto!important;height:auto!important;aspect-ratio:1/1;padding:0!important}
 html.mob .ncard.big .ov{position:static!important}
 .nbig .in{align-items:flex-start}
+
+/* две боковые карточки: 2×190 + 20 = 400 = высота ведущей */
+.rsm{grid-template-columns:190px 1fr!important;height:190px!important}
+.rsm .ri{width:190px!important;height:190px!important}
+.rsm .rb{padding:20px 24px!important;justify-content:center}
+.rsm .rb .chip{display:none}
+.rsm .h4{font-size:21px!important;line-height:1.2!important;-webkit-line-clamp:3!important}
+.rsm .dt{margin-top:12px!important}
+.rsm .ri .phl{display:block}
+html.mob .rsm{grid-template-columns:130px 1fr!important;height:130px!important}
+html.mob .rsm .ri{width:130px!important;height:130px!important}
+html.mob .rsm .rb{padding:12px 18px!important}
+@media (max-width:600px){
+ html.mob .rsm{grid-template-columns:120px 1fr!important;height:120px!important}
+ html.mob .rsm .ri{width:120px!important;height:120px!important}
+ html.mob .rsm .rb{padding:10px 14px!important}
+ html.mob .rsm .h4{font-size:16px!important}
+ html.mob .rsm .dt{margin-top:6px!important}
+ html.mob .rsm .ri .phl{display:none}
+}
