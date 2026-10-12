@@ -1,0 +1,43 @@
+/* ===== Квадратные фото в новостях и медиа (клуб загружает квадратные изображения 1:1) ===== */
+/* общая основа: картинка/плейсхолдер заполняет квадрат целиком */
+.ri>.phd,.nimg>.phd,.nbig>.phd,.nsm>.phd{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;padding:0!important;-webkit-mask-image:none!important;mask-image:none!important}
+.ri img,.nimg img,.nbig>.phd img,.nsm>.phd img{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover}
+
+/* --- страница «Новости» --- */
+.rcard .ri,.rbig .ri{aspect-ratio:1/1!important;height:auto!important;width:100%}
+.rshow{container-type:inline-size;align-items:start!important}
+.rstack{grid-template-rows:none!important;gap:20px}
+/* боковые карточки: квадратная миниатюра слева, высота столбца = высоте большой карточки */
+.rsm{grid-template-columns:var(--sq) 1fr!important;--sq:calc((50cqi - 12px + 160px) / 3);min-height:0}
+.rsm .ri{width:var(--sq);aspect-ratio:1/1;height:auto!important}
+.rsm .rb{padding:20px 24px!important;overflow:hidden}
+.rsm .h4{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+html.mob .rsm{--sq:120px!important}
+html.mob .rsm .rb{padding:14px 16px!important}
+html.mob .rsm .h4{font-size:17px!important;margin-top:8px}
+
+/* --- страница «Медиа» --- */
+.ncard .nimg{height:auto!important;min-height:0!important;aspect-ratio:1/1;flex:none}
+.ncard.big{background:var(--navy);color:#fff}
+.ncard.big .nimg{aspect-ratio:auto!important;height:100%!important;display:flex!important;flex-direction:column;background:none!important;overflow:visible}
+.ncard.big .nimg::after{display:none!important}
+.ncard.big .ov{position:static!important;padding:24px 32px 30px!important;background:none!important;inset:auto!important}
+.ncard.big .ov .h3{font-size:30px;margin:10px 0 14px}
+.ncard.big .nimg>.phd{position:relative!important;inset:auto!important;aspect-ratio:1/1;height:auto!important;flex:none}
+.ncard.big{overflow:hidden}
+.ncard.big .play{top:50%}
+html.mob .ncard.big .ov{padding:18px 20px 22px!important}
+html.mob .ncard.big .nimg>.phd{position:relative!important;inset:auto!important;aspect-ratio:1/1;height:auto!important}
+
+/* --- главная: блок новостей --- */
+.news{grid-template-columns:1fr 1fr!important;align-items:start;container-type:inline-size}
+.nbig{height:auto!important;display:flex;flex-direction:column;background:var(--navy)}
+.nbig::after{display:none!important}
+.nbig>.phd{position:relative!important;inset:auto!important;aspect-ratio:1/1;height:auto!important}
+.nbig .in{position:relative!important;inset:auto!important;padding:28px 36px 32px}
+.news>div:not(.nbig){display:grid;gap:16px}
+.nsm{--sq:calc((50cqi - 8px - 16px) / 2 + 90px);grid-template-columns:var(--sq) 1fr!important;height:auto!important;align-items:start}
+.nsm>.phd{position:relative!important;inset:auto!important;width:var(--sq)!important;aspect-ratio:1/1;height:auto!important}
+.nsm .in{padding:24px 26px 22px 0}
+html.mob .news .nbig>.phd,html.mob .news .nsm>.phd{width:100%!important;aspect-ratio:1/1;height:auto!important}
+html.mob .news .nsm{--sq:auto}
