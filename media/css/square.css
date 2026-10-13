@@ -96,3 +96,13 @@ html.mob .rshow .rsm .rb{padding:10px 12px!important}
 html.mob .rshow .rsm .h4{font-size:14px!important;-webkit-line-clamp:2!important}
 html.mob .rshow .rsm .dt{font-size:11px;margin-top:4px!important}
 @media (max-width:600px){html.mob .rshow .rbig .link{display:none}html.mob .rshow .rbig .h3{font-size:20px!important}}
+
+/* плашки карточек верхнего блока новостей — белые, как у остальных белых карточек */
+.rshow .rbig,.rshow .rsm{background:#fff!important;color:var(--navy);box-shadow:0 14px 40px rgba(10,23,54,.08)}
+.rshow .rbig .rb,.rshow .rsm .rb{background:#fff!important;color:var(--navy)}
+.rshow .rbig .h3,.rshow .rsm .h4{color:var(--navy)!important}
+.rshow .rbig:hover .h3,.rshow .rsm:hover .h4{color:var(--red)!important;text-decoration:none}
+.rshow .rbig .p{color:var(--grey)!important}
+.rshow .rbig .link{color:var(--navy)!important}
+.rshow .rbig .link .ar{color:var(--red)}
+.rshow .rbig .dt,.rshow .rsm .dt{color:var(--grey)!important}
