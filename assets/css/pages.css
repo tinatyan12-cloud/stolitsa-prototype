@@ -9,10 +9,10 @@ html.wide{--W:1920px}
 .hdr{position:fixed;top:0;left:50%;width:var(--W);margin-left:calc(var(--W) / -2);z-index:50;transition:background-color .35s ease,box-shadow .35s ease,height .35s ease}
 .hdr.dk.scrolled{background:rgba(8,19,47,.94);box-shadow:0 10px 30px rgba(0,0,0,.25);backdrop-filter:blur(8px);height:68px}
 .hdr.lt.scrolled{box-shadow:0 8px 28px rgba(10,23,54,.10);height:68px}
-.nav span{position:relative;cursor:pointer;transition:color .2s}
-.nav span::after,.nav span.on::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
-.nav span:hover::after,.nav span.on::after{transform:scaleX(1)}
-.hdr.dk .nav span:hover{color:#fff}.hdr.lt .nav span:hover{color:var(--red)}
+.nav span,.nav>a:not(.btn){position:relative;cursor:pointer;transition:color .2s}
+.nav span::after,.nav span.on::after,.nav>a:not(.btn)::after,.nav>a:not(.btn).on::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.nav span:hover::after,.nav span.on::after,.nav>a:not(.btn):hover::after,.nav>a:not(.btn).on::after{transform:scaleX(1)}
+.hdr.dk .nav span:hover,.hdr.dk .nav>a:not(.btn):hover{color:#fff}.hdr.lt .nav span:hover,.hdr.lt .nav>a:not(.btn):hover{color:var(--red)}
 .hicons svg{transition:transform .2s,color .2s;cursor:pointer}.hicons svg:hover{transform:translateY(-2px);color:var(--red)}
 /* buttons */
 .btn{cursor:pointer;transition:transform .2s ease,background-color .2s,color .2s,border-color .2s,box-shadow .2s}
@@ -77,7 +77,7 @@ table tr{transition:background-color .2s}
 table tr:not(:first-child):hover{background:#F5F7FB}
 /* footer */
 .fcols li{cursor:pointer;transition:color .2s}.fcols li:hover{color:#fff}
-.soc span{cursor:pointer;transition:background-color .2s,color .2s}.soc span:hover{background:#fff;color:var(--navy)}
+.soc span,.soc a{cursor:pointer;transition:background-color .2s,color .2s}.soc span:hover,.soc a:hover{background:#fff;color:var(--navy)}
 /* static (for screenshots) + reduced motion */
 .static .hi,.static .hcard,.static .hphoto,.static [data-r]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
 @media (prefers-reduced-motion:reduce){
@@ -112,7 +112,8 @@ section,.foot,.mband{width:100%}
 .slide{left:calc(50% - var(--sw) / 2)}
 /* header dropdowns */
 .nav{align-items:center}
-.nav>span{display:inline-flex;align-items:center;gap:6px;outline:none}
+.nav>span,.nav>a:not(.btn){display:inline-flex;align-items:center;gap:6px;outline:none;color:inherit;text-decoration:none}
+.nav>.dd>a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:6px;outline:none}
 .nav .chev{width:10px;height:6px;opacity:.7;transition:transform .3s ease}
 .nav .dd{position:relative}
 .nav .dd::before{content:"";position:absolute;left:-14px;right:-14px;top:100%;height:26px}
@@ -304,9 +305,9 @@ html{scroll-behavior:smooth}
 .subs .p{color:#C9D0E2;margin-top:18px;max-width:480px}
 .sf .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .sf label span{display:block;font-size:12.5px;font-weight:500;color:#AEB8D0;margin-bottom:8px}
-.sf input[type=text]{width:100%;box-sizing:border-box;height:52px;padding:0 18px;border-radius:4px;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04);color:#fff;font:500 15px var(--text);outline:none;transition:border-color .2s,background-color .2s}
-.sf input[type=text]::placeholder{color:#7D89A8}
-.sf input[type=text]:focus{border-color:#fff;background:rgba(255,255,255,.08)}
+.sf input[type=text],.sf input[type=email],.sf input[type=tel]{width:100%;box-sizing:border-box;height:52px;padding:0 18px;border-radius:4px;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04);color:#fff;font:500 15px var(--text);outline:none;transition:border-color .2s,background-color .2s}
+.sf input[type=text]::placeholder,.sf input[type=email]::placeholder,.sf input[type=tel]::placeholder{color:#7D89A8}
+.sf input[type=text]:focus,.sf input[type=email]:focus,.sf input[type=tel]:focus{border-color:#fff;background:rgba(255,255,255,.08)}
 .sf .row2{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:24px}
 .chk{display:flex;align-items:center;gap:12px;cursor:pointer;font-size:13px;color:#C9D0E2}
 .chk input{position:absolute;opacity:0}

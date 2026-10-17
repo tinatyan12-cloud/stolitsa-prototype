@@ -30,9 +30,10 @@ html.mob .hdr .nav{position:fixed;left:0;right:0;top:64px;height:calc(100vh - 64
 html.menu-open .hdr .nav{opacity:1;visibility:visible;transform:none}
 html.menu-open .hdr{background:#081330!important;color:#fff}
 html.menu-open body{overflow:hidden}
-html.mob .hdr .nav>span{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-html.mob .hdr .nav>span::after,html.mob .nav .dd::before{display:none}
-html.mob .hdr .nav>span.on{color:var(--red)}
+html.mob .hdr .nav>span,html.mob .hdr .nav>a:not(.btn){display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+html.mob .hdr .nav>span::after,html.mob .hdr .nav>a:not(.btn)::after,html.mob .nav .dd::before{display:none}
+html.mob .hdr .nav>span.on,html.mob .hdr .nav>a:not(.btn).on{color:var(--red)}
+html.mob .nav>.dd>a{display:flex;justify-content:space-between;align-items:center;width:100%}
 html.mob .nav .chev{width:14px;height:9px}
 html.mob .nav .dd.open .chev{transform:rotate(180deg)}
 html.mob .nav .dd .ddm,html.mob .hdr.dk .ddm,html.mob .hdr.lt .ddm{position:static;flex-basis:100%;min-width:0;padding:0;margin:0;border:0;box-shadow:none;background:transparent;color:#C9D0E2;opacity:1;visibility:visible;transform:none;display:none}
@@ -297,3 +298,12 @@ html.mob .ovf.ovs{-webkit-mask-image:linear-gradient(90deg,transparent,#000 36px
 html.mob .ovf.ove{-webkit-mask-image:linear-gradient(90deg,transparent,#000 36px);mask-image:linear-gradient(90deg,transparent,#000 36px)}
 @media (max-width:767px){html.mob .tabs span{padding-left:14px!important;padding-right:14px!important}}
 html.mob .crow>div>div:nth-last-child(3)>div[style*="font-size:40px"]{font-size:24px!important}
+/* kids hero + two-column blocks that were a scaled 1920 layout */
+html.mob .khero{height:auto!important;display:flex;flex-direction:column;overflow:visible}
+html.mob .khero>.hphoto{position:relative!important;order:2;width:100%!important;height:auto!important;aspect-ratio:16/10;top:auto!important;right:auto!important;bottom:auto!important;max-height:420px}
+html.mob .khero>.hphoto .phd{-webkit-mask-image:none!important;mask-image:none!important}
+html.mob .khero>.wrap{order:1;padding-top:104px!important;padding-bottom:32px}
+html.mob .khero .h1{max-width:100%;overflow-wrap:normal}
+html.mob .khero .hi[style*="display:flex"]{flex-direction:column;align-items:stretch;gap:12px}
+html.mob .khero .hi[style*="display:flex"] .btn{justify-content:center;width:100%;box-sizing:border-box}
+html.mob [style*="grid-template-columns:760px"]{grid-template-columns:1fr!important;gap:28px!important}
