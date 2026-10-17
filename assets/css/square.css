@@ -5,10 +5,10 @@
 
 
 /* --- новости: сетка ниже --- */
-.rgrid:not(.kbr){grid-template-columns:repeat(4,1fr)!important}
+.npanel .rgrid:not(.kbr){grid-template-columns:repeat(4,1fr)!important}
 .rcard .ri{aspect-ratio:1/1!important;height:auto!important;width:100%}
-html.mob .rgrid:not(.kbr){grid-template-columns:repeat(2,1fr)!important}
- html.mob .rgrid:not(.kbr){grid-template-columns:1fr!important}
+html.mob .npanel .rgrid:not(.kbr){grid-template-columns:repeat(2,1fr)!important}
+ html.mob .npanel .rgrid:not(.kbr){grid-template-columns:1fr!important}
 
 /* --- страница «Медиа»: квадраты; большой альбом — горизонтальный, фото не больше 520 --- */
 .ncard .nimg{height:auto!important;min-height:0!important;aspect-ratio:1/1;flex:none}
@@ -89,7 +89,7 @@ html.mob .rshow .rbig .p{display:none}
  html.mob .rshow .rsm .rb .chip{display:none!important}
  html.mob .rshow .rsm .h4{font-size:14px!important;-webkit-line-clamp:3!important}
  html.mob .rshow .rsm .dt{font-size:11px;margin-top:4px!important}
- html.mob .rgrid:not(.kbr){grid-template-columns:1fr!important}
+ html.mob .npanel .rgrid:not(.kbr){grid-template-columns:1fr!important}
 }
 html.mob .rshow .rsm .rb .chip{display:none!important}
 html.mob .rshow .rsm .rb{padding:10px 12px!important}
